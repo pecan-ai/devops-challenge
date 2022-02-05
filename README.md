@@ -2,13 +2,24 @@
 
 ## The Challenge
 Your challenge is to develop a tool that extracts a value from a YAML text based on a path expression.
-You will need to: 
+You will need to:
 * Understand the requirements
 * Implement the tool
 * Document it
 * Package it
 * Test it
 * Deploy it to "production"
+
+## Prerequisites
+In order to build this tool, you will need the following prerequisites:
+* python3
+* An IDE/Text Editor (vscode/PyCharm...)
+* Docker client / Docker daemon (Docker for desktop is what we usually choose for our development)
+* Docker Compose
+* [Local K8S cluster](#local-k8s-cluster) (Docker for desktop is what we usually choose for our development)
+* kubectl
+* Helm (as bonus)
+* A github.com, gitlab.com or any other public git accout
 
 
 ## Specification
@@ -55,9 +66,10 @@ root.child2.child2t            ---> "text"
     * You will need to write a README on how to build and run the application (Not this Readme file)
       * How to build the project
       * How to run the CLI
+      * How to test the code
       * How to deploy it
       * Pre-Requisites
-* Attached are tests/data files for convenience. Copy them to your repository and use them as baseline tests 
+* Attached are tests/data files for convenience. Copy them to your repository and use them as baseline tests
 * The Web API should be packaged as `Docker image`
 * The Web API should run within `docker-compose`
 * The Web API should be deployed to a [local K8S cluster](#local-k8s-cluster)
