@@ -47,7 +47,7 @@ root:
 ```shell
 root.child1.list[0]            ---> "element1"
 root.child1.list[1]            ---> "element2"
-root.child1.listOfdics[0].key1 ---> "element1"
+root.child1.listOfdicts[0].key1 ---> "element1"
 root.child1.list               ---> ["element1", "element2"]
 root.child2                    ---> {"child2t": "text"}
 root.child2.child2t            ---> "text"
