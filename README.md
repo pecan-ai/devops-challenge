@@ -79,7 +79,7 @@ root.child2.child2t            ---> "text"
     * Helm chart is a bonus, but not required
 
 ### Local K8S Cluster
-You could use any local K8S cluster that will do job:
+You could use any local K8S cluster that will do the job:
 * [Docker for Desktop](https://www.docker.com/products/docker-desktop)
 * [Minikube](https://minikube.sigs.k8s.io/docs/)
 * [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
