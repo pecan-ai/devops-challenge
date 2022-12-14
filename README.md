@@ -153,3 +153,34 @@ The following snippets should be used as tests that the program works as expecte
 $ curl http://localhost:8888/api/yaml_extract --data-binary "@./tests/data/request.json" -H "Content-Type: application/json"
 $ {"data": "element1"}
 ```
+
+
+## Infrastructure Implemantaion
+Now, we want the service would be exposed to the world and will update for every commit to main.
+
+You will need to create the Infrastructure that enables us the run CI/CD flow and to expose the service to the world.
+We would like to run our service on public-faced EKS, therefore you will need to create:
+* VPC
+* EKS within the vpc.
+    * The EKS should be scalable
+    * The EKS should run on spots
+
+**Important note: the entire creation of components in the cloud should with terraform!**
+
+For controlling the CI/CD flow, you will need to use gitlab.com platform(https://gitlab.com/users/sign_in):
+* You will need to create a new project in gitlab.com
+* You will need to push your code to the project you just created
+* You will need to connect your project to the EKS you just created:
+    * Connect the runners of gitlab.com to your EKS
+    * Make sure your ci is running on your new EKS
+* You will need to create a CI flow that:
+    * On each merge request:
+    * Build a docker image
+    * Push the docker image to a public repository (such as ecr)
+    * On each commit to master
+        * Does the same as on merge request flow
+        * Push the new image to your EKS cluster
+
+To expose your service to the world, you will need to expose external ingress. for that you have the `pecan-challenge.com` domain:
+* You will need to create external ingress that will use the `pecan-challenge.com` domain that exists within the aws account
+* Save the record in route53 that attached to `pecan-challenge.com` domain.
